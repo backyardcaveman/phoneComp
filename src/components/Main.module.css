@@ -1,0 +1,10 @@
+.main {
+    display: flex;
+    margin-bottom: 0;
+    background-color: #f3f3f3;
+}
+
+.pic img {
+    max-height: 330px;
+    padding: 0;
+}

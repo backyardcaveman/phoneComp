@@ -1,0 +1,16 @@
+.footer {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.781);
+    color: #f3f3f3;
+    padding: 10px 10px 10px 40px;
+}
+
+.footer p,
+.footer h5 {
+    margin-right: 5px;
+}
+
+.footer p {
+    color: #757575;
+}
