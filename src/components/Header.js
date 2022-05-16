@@ -1,5 +1,7 @@
 import classes from './Header.module.css';
 import { BsPhone } from 'react-icons/bs'
+import { Link } from 'react-scroll';
+
 
 function Header() {
   return (
@@ -9,9 +11,9 @@ function Header() {
             <h5>WTC</h5>
         </div>
         <ul className={classes.navLinks}>
-            <li>About</li>
-            <li>Services</li>
-            <li>Contact</li>
+            <Link to='about' spy={true} smooth={true} duration={500} offset={-50}><li>About</li></Link>
+            <Link to='contact' spy={true} smooth={true} duration={500} offset={-50}><li>Contact</li></Link>
+            <Link to='contact' spy={true} smooth={true} duration={500} offset={-50}><li>Hours</li></Link>
         </ul>
     </div>
   )
