@@ -1,10 +1,13 @@
 .main {
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 0;
     background-color: #f3f3f3;
+    flex-wrap: wrap;
 }
 
 .pic img {
-    max-height: 330px;
+    max-height: 317px;
     padding: 0;
 }

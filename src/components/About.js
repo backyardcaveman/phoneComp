@@ -8,14 +8,10 @@ function About() {
       <h5>CALL ME CRAZY BUT WE MAY HAVE A SOLUTION FOR YOU!</h5>
       <div className={classes.paragraph}>
       <p>
-        As a small business in Southern Ontario we deal with simple hardware related repairs of iphones and Samsung phones
+        As a small business in Southern Ontario we deal with simple hardware related repairs of iphones and Samsung phones including: front/back screen repairs, camera replacements, charging port replacements etc. Don't know if we can help?
+        Message us anyways! We'll happily let you know if we can assist you.
      </p>
-      <p>
-        including: front/back screen repairs, camera replacements, charging port replacements etc. Don't know if we can help?
-      </p>
-      <p>
-        Message us anyways! Will happily let you know if we can assist you.
-      </p>
+        
       </div>
       
     </div>
