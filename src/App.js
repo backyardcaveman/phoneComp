@@ -29,7 +29,7 @@ function App() {
       <Logo />
       <Main />
       <About />
-      <Form showModal={showModalHandler} hideModal={hideModalHandler}/>
+      <Form showModal={showModalHandler}/>
       <Hours />
       <Footer />
       <ScrollToTop />

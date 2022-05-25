@@ -70,6 +70,7 @@ function Form(props) {
       setMessageBox('')
       setFormIsValid(true)
     }
+    setFormIsSubmitted(true);
   }
 
   return (
