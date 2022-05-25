@@ -5,7 +5,7 @@ import classes from './Hours.module.css';
 function Hours() {
   return (
     <div className={classes.hours}>
-        <img src={pic}>
+        <img src={pic} alt='iphone'>
         </img>
     </div>
   )
