@@ -5,7 +5,7 @@ import classes from './Logo.module.css'
 function Logo() {
   return (
     <div className={classes.logo}>
-        <img src={logo}/>
+        <img src={logo} alt='WhatTheCell.co'/>
     </div>
   )
 }

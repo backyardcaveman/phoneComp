@@ -7,57 +7,27 @@ function Form(props) {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [email, setEmail] = useState('')
   const [messageBox, setMessageBox] = useState('')
-  const [firstNameIsValid, setFirstNameIsValid] = useState(false)
-  const [lastNameIsValid, setLastNameIsValid] = useState(false)
-  const [phoneNumberIsValid, setPhoneNumberIsValid] = useState(false)
-  const [emailIsValid, setEmailIsValid] = useState(false)
-  const [messageBoxIsValid, setMessageBoxIsValid] = useState(false)
   const [formIsSubmitted, setFormIsSubmitted] = useState(false)
   const [formIsValid, setFormIsValid] = useState(false)
 
   const firstNameChangeHandler = (event) => {
     setFirstName(event.target.value)
-    if(firstName.length > 0) {
-      setFirstNameIsValid(true)
-    } else {
-      setFirstNameIsValid(false)
-    }
   }
 
   const lastNameChangeHandler = (event) => {
     setLastName(event.target.value)
-    if(lastName.length > 0) {
-      setLastNameIsValid(true)
-    } else {
-      setLastNameIsValid(false)
-    }
   }
 
   const phoneNumberChangeHandler = (event) => {
     setPhoneNumber(event.target.value)
-    if(phoneNumber.length > 7) {
-      setPhoneNumberIsValid(true)
-    } else {
-      setPhoneNumberIsValid(false)
-    }
   }
 
   const emailChangeHandler = (event) => {
     setEmail(event.target.value)
-    if(email.includes('@')) {
-    } else {
-      setEmailIsValid(false)
-      console.log('false')
-    }
   }
 
   const messageChangeHandler = (event) => {
     setMessageBox(event.target.value)
-    if(messageBox.length > 0) {
-      setMessageBoxIsValid(true)
-    } else {
-      setMessageBoxIsValid(false)
-    }
   }
 
   const submitHandler = (event) => {
@@ -71,6 +41,8 @@ function Form(props) {
       setFormIsValid(true)
     }
     setFormIsSubmitted(true);
+    console.log(formIsSubmitted)
+    console.log(formIsValid)
   }
 
   return (

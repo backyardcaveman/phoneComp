@@ -7,13 +7,13 @@ function Main() {
   return (
     <div className={classes.main}>
         <div className={classes.pic}>
-            <img src={pic1}/>
+            <img src={pic1} alt='phone1'/>
         </div>
         <div className={classes.pic}>
-            <img src={pic2}/>
+            <img src={pic2} alt='phone2'/>
         </div>
         <div className={classes.pic}>
-            <img src={pic3}/>
+            <img src={pic3} alt='phone3'/>
         </div>
     </div>
   )
