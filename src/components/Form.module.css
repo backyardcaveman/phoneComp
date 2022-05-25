@@ -35,7 +35,6 @@
 
 .formContainer form {
     background-color: var(--offWhite);
-    min-height: 415px;
     padding: 35px;
 }
 
@@ -83,7 +82,6 @@
     color: var(--offWhite);
     padding: 5px 20px 5px 20px;
     margin-top: 10px;
-    /* transition: 0.2s; */
 }
 
 .formContainer .btn:hover {
@@ -91,4 +89,28 @@
     border: 2px solid var(--red);
     color: black;
     padding: 3px 18px 3px 18px;
+}
+
+@media screen and (max-width: 660px) {
+    .formSection {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+    .formContainer {
+        flex-direction: column;
+    }
+    .information {
+        min-height: 315px;
+        margin: auto;
+    }
+    .formContainer form {
+        margin: auto;
+        padding: 45px;
+    }
+    .nameFields {
+        flex-direction: column;
+    }
+    .rightInput {
+        margin-left: 0;
+    }
 }
