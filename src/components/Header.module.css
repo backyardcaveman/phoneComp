@@ -40,3 +40,9 @@
 .header ul li:hover {
     color: #757575;
 }
+
+@media screen and (max-width: 425px) {
+    .header ul li {
+        margin-left: 15px;
+    }
+}
