@@ -14,11 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-
-  const showModalHandler = () => {
-    setShowModal(true)
-  }
-
+  
   const hideModalHandler = () => {
     setShowModal(false)
   }
