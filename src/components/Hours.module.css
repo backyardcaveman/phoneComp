@@ -6,3 +6,9 @@
     width: 100%;
     height: 500px;
 }
+
+@media screen and (max-width: 660px) {
+    .hours img {
+        max-height: 400px;
+    }
+}
