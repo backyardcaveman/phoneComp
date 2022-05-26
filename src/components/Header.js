@@ -12,7 +12,7 @@ function Header() {
         </div>
         <ul className={classes.navLinks}>
             <Link to='about' spy={true} smooth={true} duration={500} offset={-50}><li>About</li></Link>
-            <Link to='contact' spy={true} smooth={true} duration={500} offset={-50}><li>Hours</li></Link>
+            <Link to='hours' spy={true} smooth={true} duration={500} offset={-50}><li>Hours</li></Link>
             <Link to='contact' spy={true} smooth={true} duration={500} offset={-50}><li>Contact</li></Link>
         </ul>
     </div>

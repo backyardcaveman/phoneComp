@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import classes from './Form.module.css';
+import { useState } from 'react'
+import classes from './Form.module.css'
 
 function Form(props) {
   const [firstName, setFirstName] = useState('')
@@ -31,8 +31,8 @@ function Form(props) {
   }
 
   const submitHandler = (event) => {
-    event.preventDefault();
-    if(firstName && lastName && phoneNumber && email && messageBox) {
+    event.preventDefault()
+    if (firstName && lastName && phoneNumber && email && messageBox) {
       setFirstName('')
       setLastName('')
       setPhoneNumber('')
@@ -40,51 +40,71 @@ function Form(props) {
       setMessageBox('')
       setFormIsValid(true)
     }
-    setFormIsSubmitted(true);
+    setFormIsSubmitted(true)
     console.log(formIsSubmitted)
     console.log(formIsValid)
   }
 
   return (
-    <div id='contact' className={classes.formSection}>
-      <div className={classes.formContainer}>
-      <div className={classes.information}>
-        <h3>Hours of Operation</h3>
-        <p>Monday: 9am to 6pm</p>
-        <p>Tuesday: 9am to 6pm</p>
-        <p>Wednesday: 9am to 6pm</p>
-        <p>Thursday: 9am to 6pm</p>
-        <p>Friday: 9am to 6pm</p>
-        <p>Saturday: OFF</p>
-        <p>Sunday: OFF</p>
+    <div className={classes.formSection}>
+      <div id="hours" className={classes.formContainer}>
+        <div className={classes.information}>
+          <h3>Hours of Operation</h3>
+        <ul>
+          <li>Monday: 9am to 6pm</li>
+          <li>Tuesday: 9am to 6pm</li>
+          <li>Wednesday: 9am to 6pm</li>
+          <li>Thursday: 9am to 6pm</li>
+          <li>Friday: 9am to 6pm</li>
+          <li>Saturday: OFF</li>
+          <li>Sunday: OFF</li>
+        </ul>
+        </div>
+        <form id='contact' onSubmit={submitHandler}>
+          <h3>Contact Us</h3>
+          <div className={classes.nameFields}>
+            <div className={classes.formField}>
+              <label>First Name</label>
+              <input
+                type="text"
+                onChange={firstNameChangeHandler}
+                value={firstName}
+              />
+            </div>
+            <div className={`${classes.formField} ${classes.rightInput}`}>
+              <label>Last Name</label>
+              <input
+                type="text"
+                onChange={lastNameChangeHandler}
+                value={lastName}
+              />
+            </div>
+          </div>
+          <div className={classes.formField}>
+            <label>Phone Number</label>
+            <input
+              type="number"
+              onChange={phoneNumberChangeHandler}
+              value={phoneNumber}
+            />
+          </div>
+          <div className={classes.formField}>
+            <label>Email</label>
+            <input type="email" onChange={emailChangeHandler} value={email} />
+          </div>
+          <div className={classes.formField}>
+            <label>Message</label>
+            <textarea
+              type="text"
+              onChange={messageChangeHandler}
+              value={messageBox}
+            />
+          </div>
+          <button className={classes.btn} onClick={props.showModal}>
+            Send
+          </button>
+        </form>
       </div>
-      <form onSubmit={submitHandler}>
-        <h3>Contact Us</h3>
-      <div className={classes.nameFields}>
-      <div className={classes.formField}>
-        <label>First Name</label>
-        <input type='text' onChange={firstNameChangeHandler} value={firstName}/>
-      </div>
-      <div className={`${classes.formField} ${classes.rightInput}`}>
-        <label>Last Name</label>
-        <input type='text' onChange={lastNameChangeHandler} value={lastName}/>
-      </div>
-      </div>
-      <div className={classes.formField}>
-        <label>Phone Number</label>
-        <input type='number' onChange={phoneNumberChangeHandler} value={phoneNumber}/>
-      </div>
-      <div className={classes.formField}>
-        <label>Email</label>
-        <input type='email' onChange={emailChangeHandler} value={email}/>
-      </div>
-      <div className={classes.formField}>
-        <label>Message</label>
-        <textarea type='text' onChange={messageChangeHandler} value={messageBox}/>
-      </div>
-      <button className={classes.btn} onClick={props.showModal}>Send</button>
-    </form>
-    </div>
     </div>
   )
 }
