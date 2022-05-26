@@ -8,41 +8,72 @@ function Form(props) {
   const [email, setEmail] = useState('')
   const [messageBox, setMessageBox] = useState('')
   const [formIsSubmitted, setFormIsSubmitted] = useState(false)
+  const [firstNameIsValid, setFirstNameIsValid] = useState(false)
+  const [lastNameIsValid, setLastNameIsValid] = useState(false)
+  const [phoneNumberIsValid, setPhoneNumberIsValid] = useState(false)
+  const [emailIsValid, setEmailIsValid] = useState(false)
+  const [messageBoxIsValid, setMessageBoxIsValid] = useState(false)
   const [formIsValid, setFormIsValid] = useState(false)
 
   const firstNameChangeHandler = (event) => {
     setFirstName(event.target.value)
+    if(firstName.length >= 3) {
+      setFirstNameIsValid(true);
+    } else {
+      setFirstNameIsValid(false);
+    }
   }
 
   const lastNameChangeHandler = (event) => {
     setLastName(event.target.value)
+    if(lastName.length >= 3) {
+      setLastNameIsValid(true);
+    } else {
+      setLastNameIsValid(false);
+    }
   }
 
   const phoneNumberChangeHandler = (event) => {
     setPhoneNumber(event.target.value)
+    if(phoneNumber.length === 9) {
+      setPhoneNumberIsValid(true);
+    } else {
+      setPhoneNumberIsValid(false);
+    }
   }
 
   const emailChangeHandler = (event) => {
     setEmail(event.target.value)
+    if(email.includes('@')) {
+      setEmailIsValid(true);
+    } else {
+      setEmailIsValid(false);
+    }
   }
 
   const messageChangeHandler = (event) => {
     setMessageBox(event.target.value)
+    if(messageBox.length >= 3) {
+      setMessageBoxIsValid(true);
+    } else {
+      setMessageBoxIsValid(false);
+    }
   }
 
   const submitHandler = (event) => {
     event.preventDefault()
-    if (firstName && lastName && phoneNumber && email && messageBox) {
+    setFormIsSubmitted(true)
+    if (firstNameIsValid && lastNameIsValid && phoneNumberIsValid && emailIsValid && messageBoxIsValid) {
       setFirstName('')
       setLastName('')
       setPhoneNumber('')
       setEmail('')
       setMessageBox('')
+      props.setShowModal(true)
       setFormIsValid(true)
-    }
-    setFormIsSubmitted(true)
-    console.log(formIsSubmitted)
-    console.log(formIsValid)
+    } else {
+      setFormIsValid(false)
+    } 
   }
 
   return (
@@ -70,6 +101,7 @@ function Form(props) {
                 onChange={firstNameChangeHandler}
                 value={firstName}
               />
+              {!firstNameIsValid && formIsSubmitted && <p>*Enter a valid first name</p>}
             </div>
             <div className={`${classes.formField} ${classes.rightInput}`}>
               <label>Last Name</label>
@@ -78,6 +110,7 @@ function Form(props) {
                 onChange={lastNameChangeHandler}
                 value={lastName}
               />
+              {!lastNameIsValid && formIsSubmitted && <p>*Enter a valid last name</p>}
             </div>
           </div>
           <div className={classes.formField}>
@@ -87,10 +120,12 @@ function Form(props) {
               onChange={phoneNumberChangeHandler}
               value={phoneNumber}
             />
+            {!phoneNumberIsValid && formIsSubmitted && <p>*Enter a valid phone number</p>}
           </div>
           <div className={classes.formField}>
             <label>Email</label>
             <input type="email" onChange={emailChangeHandler} value={email} />
+            {!emailIsValid && formIsSubmitted && <p>*Enter a valid email</p>}
           </div>
           <div className={classes.formField}>
             <label>Message</label>
@@ -99,10 +134,15 @@ function Form(props) {
               onChange={messageChangeHandler}
               value={messageBox}
             />
+            {!messageBoxIsValid && formIsSubmitted && <p>*Don't leave message box section blank</p>}
           </div>
-          <button className={classes.btn} onClick={props.showModal}>
+          {formIsSubmitted && formIsValid && <p className={classes.confirmationText}>*Your message has been sent!*</p>}
+          {formIsSubmitted && !formIsValid && <button className={classes.btn}>
             Send
-          </button>
+          </button>}
+          {!formIsSubmitted && !formIsValid && <button className={classes.btn}>
+            Send
+          </button>}
         </form>
       </div>
     </div>
