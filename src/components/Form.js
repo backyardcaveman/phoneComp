@@ -64,15 +64,16 @@ function Form(props) {
   const submitHandler = (event) => {
     event.preventDefault()
 
-    emailjs.sendForm('service_7oxtmrr', 'template_u6h2bik', event.target, 'RxBFx2WAFVLuboamj')
+    setFormIsSubmitted(true)
+    if (firstNameIsValid && lastNameIsValid && phoneNumberIsValid && emailIsValid && messageBoxIsValid) {
+
+      emailjs.sendForm('service_7oxtmrr', 'template_u6h2bik', event.target, 'RxBFx2WAFVLuboamj')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
       });
 
-    setFormIsSubmitted(true)
-    if (firstNameIsValid && lastNameIsValid && phoneNumberIsValid && emailIsValid && messageBoxIsValid) {
       setFirstName('')
       setLastName('')
       setPhoneNumber('')
