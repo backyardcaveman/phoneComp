@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import emailjs from 'emailjs-com';
 import classes from './Form.module.css'
 
 function Form(props) {
@@ -62,6 +63,14 @@ function Form(props) {
 
   const submitHandler = (event) => {
     event.preventDefault()
+
+    emailjs.sendForm('service_7oxtmrr', 'template_u6h2bik', event.target, 'RxBFx2WAFVLuboamj')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+
     setFormIsSubmitted(true)
     if (firstNameIsValid && lastNameIsValid && phoneNumberIsValid && emailIsValid && messageBoxIsValid) {
       setFirstName('')
@@ -100,6 +109,7 @@ function Form(props) {
                 type="text"
                 onChange={firstNameChangeHandler}
                 value={firstName}
+                name='to_name'
               />
               {!firstNameIsValid && formIsSubmitted && <p>*Enter a valid first name</p>}
             </div>
@@ -124,7 +134,7 @@ function Form(props) {
           </div>
           <div className={classes.formField}>
             <label>Email</label>
-            <input type="email" onChange={emailChangeHandler} value={email} />
+            <input type="email" onChange={emailChangeHandler} value={email} name='from_name'/>
             {!emailIsValid && formIsSubmitted && <p>*Enter a valid email</p>}
           </div>
           <div className={classes.formField}>
@@ -133,6 +143,7 @@ function Form(props) {
               type="text"
               onChange={messageChangeHandler}
               value={messageBox}
+              name='message'
             />
             {!messageBoxIsValid && formIsSubmitted && <p>*Don't leave message box section blank</p>}
           </div>
